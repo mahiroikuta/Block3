@@ -18,17 +18,6 @@ public class BallHitManager : MonoBehaviour
         return _gameState;
     }
 
-    public void ballHitFloor()
-    {
-        // 座標取得pos
-        // if ( isFirst )
-        // {
-        //     _gameState.ballBornPoint = pos;
-        //     isFirst = false;
-        // }
-        // Destroy(ball);
-    }
-
     public void ballHit(Ball ball)
     {
         if ( ball == null ) return;

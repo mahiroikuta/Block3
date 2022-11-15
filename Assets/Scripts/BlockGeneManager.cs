@@ -17,6 +17,7 @@ public class BlockGeneManager : MonoBehaviour
     {
         return _gameState;
     }
+
     // 初期ブロック配置
     public void initializeBlock()
     {

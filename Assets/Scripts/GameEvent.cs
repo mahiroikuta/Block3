@@ -8,7 +8,4 @@ public class GameEvent : MonoBehaviour
     public Action<Ball, Block> ballHitBlock;
     public Action<Ball> ballHitFloor;
     public Action<Ball, RaycastHit> ballReflection;
-
-    public Action<Block> blockDamage;
-
 }
