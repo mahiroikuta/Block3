@@ -1,18 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class GameEvent : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Action<Ball, Block> ballHitBlock;
+    public Action<Ball> ballHitFloor;
+    public Action<Ball, RaycastHit> ballReflection;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Action<Block> blockDamage;
+
 }

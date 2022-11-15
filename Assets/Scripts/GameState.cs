@@ -13,10 +13,29 @@ public class GameState
     public int maxBalls;
     public int blockLife;
 
+    [System.NonSerialized]
+    public bool isShooting;
+
+    [System.NonSerialized]
+    public bool isFirst;
+
+    [System.NonSerialized]
+    public bool hitting;
+
+    [System.NonSerialized]
+    public bool gameClear;
+
+    [System.NonSerialized]
+    public bool gameOver;
+
+    [System.NonSerialized]
     public Vector3 ballBornPoint;
 
     [System.NonSerialized]
     public List<Ball> balls = new List<Ball>();
+
+    [System.NonSerialized]
+    public List<Ball> tmpBalls = new List<Ball>();
 
     [System.NonSerialized]
     public List<Block> blocks = new List<Block>();
