@@ -18,17 +18,25 @@ public class GameCheck : MonoBehaviour
         return _gameState;
     }
 
-    public bool gameClear()
+    public void gameClear()
     {
-        return _gameState.blocks.Count == 0;
+        if ( _gameState.blocks.Count == 0 ) 
+        {
+            _gameState.gameStatus = GameStatus.GameClear;
+            Debug.Log("GAME CLEAR!!");
+        }
     }
 
-    public bool gameOver()
+    public void gameOver()
     {
         foreach ( Block block in _gameState.blocks )
         {
-            if ( block.transform.position.y < -6f ) return true;
+            if ( block.transform.position.y < -6f ) 
+            {
+                _gameState.gameStatus = GameStatus.GameOver;
+                Debug.Log("GAME OVER...");
+                return;
+            }
         }
-        return false;
     }
 }

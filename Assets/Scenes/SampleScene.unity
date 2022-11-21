@@ -473,8 +473,9 @@ MonoBehaviour:
     block: {fileID: 3933601703851654473, guid: ee882f4a91734f444ad7ebbcaafa4c34, type: 3}
     ballShooter: {fileID: -9082990462509969125, guid: 5bd2b44ef072eaa49a79ddcddc778f92, type: 3}
     speed: 20
-    maxBalls: 1
+    maxBalls: 50
     blockLife: 3
+    gameStatus: 0
   _gameEvent: {fileID: 857993499}
   blockGeneManager: {fileID: 163995054}
   ballShooterManager: {fileID: 452018040}

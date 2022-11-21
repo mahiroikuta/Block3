@@ -28,6 +28,7 @@ public class GameMain : MonoBehaviour
         
         _gameState.isShooting = false;
         _gameState.isFirst = true;
+        _gameState.gameStatus = GameStatus.IsPlaying;
     }
 
     // Start is called before the first frame update
@@ -39,30 +40,22 @@ public class GameMain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ( _gameState.gameClear || _gameState.gameOver ) return;
+        if ( _gameState.gameStatus != GameStatus.IsPlaying ) return;
+        gameCheck.gameClear();
+        ballHitManager.onUpdate();
         if ( !_gameState.isShooting && Input.GetMouseButtonDown(0) )
         {
             _gameState.isShooting = true;
             ballShooterManager.shoot();
-            foreach ( Ball ball in _gameState.balls )
-            {
-                _gameState.tmpBalls.Add(ball);
-            }
         }
         if ( _gameState.balls.Count == 0 && !_gameState.isFirst && !_gameState.isShooting )
         {
             _gameState.isFirst = true;
-            if ( _gameState.gameClear = gameCheck.gameClear() ) Debug.Log("GAME CLEAR!!");
-            if ( _gameState.gameOver = gameCheck.gameOver() ) Debug.Log("GAME OVER...");
+            gameCheck.gameOver();
 
             blockMoveManager.blockMove();
             blockGeneManager.addBlock();
             ballShooterManager.rePosition();
         }
-        foreach ( Ball ball in _gameState.tmpBalls )
-        {
-            ballHitManager.ballHit(ball);
-        }
-        
     }
 }
