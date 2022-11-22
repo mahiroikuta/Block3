@@ -23,7 +23,7 @@ public class BallHitManager : MonoBehaviour
     {
         if ( _gameState.balls.Count == 0 ) return;
         int count = _gameState.balls.Count;
-        for ( int i=0 ; i<count ; i++ )
+        for ( int i=count-1 ; i>=0 ; i-- )
         {
             count = _gameState.balls.Count;
             Ball ball = _gameState.balls[i];
