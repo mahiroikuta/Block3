@@ -5,16 +5,19 @@ using UnityEngine;
 public class BlockGeneManager : MonoBehaviour
 {
     GameState _gameState;
+    GameEvent _gameEvent;
 
-    public void setUp(GameState gameState)
+    public void setUp(GameState gameState, GameEvent gameEvent)
     {
         _gameState = gameState;
+        _gameEvent = gameEvent;
     }
 
     public GameState onUpdate()
     {
         return _gameState;
     }
+
     // 初期ブロック配置
     public void initializeBlock()
     {
@@ -32,6 +35,7 @@ public class BlockGeneManager : MonoBehaviour
             for ( int j=0 ; j<5 ; j++ )
             {
                 Block block = Instantiate(_gameState.block, placePosition, q, parent) as Block;
+                _gameState.blocks.Add(block);
                 block.life = _gameState.blockLife;
                 placePosition.x += 3;
             }
@@ -44,7 +48,7 @@ public class BlockGeneManager : MonoBehaviour
     {
         var parent = this.transform;
 
-        Vector3 placePosition = new Vector3(-6, 14, -1);
+        Vector3 placePosition = new Vector3(-6, 14, 0);
         Vector3 initPosition = placePosition;
 
         Quaternion q = new Quaternion();
@@ -53,6 +57,8 @@ public class BlockGeneManager : MonoBehaviour
         for ( int j=0 ; j<5 ; j++ )
         {
             Block block = Instantiate(_gameState.block, placePosition, q, parent) as Block;
+            _gameState.blocks.Add(block);
+            block.life = _gameState.blockLife;
             placePosition.x += 3;
         }
     }
